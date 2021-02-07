@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
       backgroundColor: "#313334",
       borderRadius: 10,
       flexDirection: 'row',
-      height: 53,
+      height: 63,
       marginHorizontal: 20,
       marginBottom: 20,
       color: "#fff",

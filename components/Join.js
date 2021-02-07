@@ -10,14 +10,16 @@ const styles = StyleSheet.create({
       },
       inputField: {
         height: 40, 
-        borderColor: 'white', 
-        borderWidth: 1,
+    
         width: "80%",
         color: "white",
+        borderRadius: 10,
+        backgroundColor: "#3C4244",
         textAlign: "center"
       },
       gamePinText: {
-          color: "white",
+          color: "orange",
+          fontSize: 30,
           padding: 10
       }
   });
@@ -31,7 +33,7 @@ function Join(){
     return (
         <View style={styles.container}>
             <Logo/>
-            <Text style={styles.gamePinText}>Enter game pin:</Text>
+            <Text style={styles.gamePinText}>Join Match</Text>
             <TextInput
                 style={styles.inputField}
                 onChangeText={text => setPinInput(text)}
@@ -39,6 +41,9 @@ function Join(){
                 keyboardAppearance={"dark"}
                 returnKeyType="send"
                 onSubmitEditing={onSubmit}
+                placeholder="enter game pin"
+                placeholderTextColor="#8e8e8e"
+                autoCorrect={false}
             />
         </View>
     )

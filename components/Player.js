@@ -1,18 +1,36 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        
       },
+      button: {
+          backgroundColor: "#3C4244",
+          width: "80%",
+          height:60,
+          justifyContent: "center",
+          alignItems: "center",
+          borderRadius: 10,
+          marginBottom: 10
+      }
   });
 
 function Player(){
     return (
         <View style={styles.container}>
-            <Text>Player screen</Text>
+               <TouchableOpacity style={styles.button} >
+                        <Text style={{color: "white"}}>Statistics</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} >
+                        <Text style={{color: "white"}}>Profile</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} >
+                        <Text style={{color: "white"}}>Settings</Text>
+                </TouchableOpacity>
         </View>
     )
 }
