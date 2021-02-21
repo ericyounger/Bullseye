@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
       }
   });
 
-function Join(){
+function Join({navigation}){
     const [pinInput, setPinInput] = useState("");
 
     function onSubmit(){
-        alert("clicked");
+        navigation.navigate('Choose Team')
     }
     return (
         <View style={styles.container}>
