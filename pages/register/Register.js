@@ -9,7 +9,7 @@ import {
 	TextInput,
 	TouchableOpacity,
 } from "react-native";
-import Logo from "../imageComponents/Logo";
+import Logo from "../../components/imageComponents/Logo";
 
 const styles = StyleSheet.create({
 	container: {

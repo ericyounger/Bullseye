@@ -1,13 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import {
-	SafeAreaView,
-	ScrollView,
-	StyleSheet,
-	Text,
-	View,
-	TextInput,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 const styles = StyleSheet.create({
 	container: {
@@ -31,12 +23,12 @@ const styles = StyleSheet.create({
 	},
 });
 
-function Settings({ navigation }) {
+function Statistics({ navigation }) {
 	return (
 		<View style={styles.container}>
-			<Text>Settings page</Text>
+			<Text>Statistics page</Text>
 		</View>
 	);
 }
 
-export default Settings;
+export default Statistics;
