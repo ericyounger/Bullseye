@@ -49,6 +49,9 @@ function InGame() {
 	return (
 		<View style={styles.container}>
 			<View style={styles.inGameCard}>
+				<Text style={{ color: "orange", paddingBottom: 10 }}>
+					Team Deathmatch
+				</Text>
 				<Tab.Navigator
 					tabBarOptions={{
 						labelStyle: { fontSize: 7 },

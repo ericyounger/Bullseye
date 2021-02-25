@@ -9,7 +9,8 @@ import {
 	TextInput,
 	TouchableOpacity,
 } from "react-native";
-import { Logo } from "../Home";
+import Logo from "../imageComponents/Logo";
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,

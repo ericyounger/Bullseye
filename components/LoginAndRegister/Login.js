@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import {
-	SafeAreaView,
-	ScrollView,
 	StyleSheet,
 	Text,
 	View,
 	TextInput,
 	TouchableOpacity,
 } from "react-native";
-import { Logo } from "../Home";
+import { Logo } from "../../pages/home/Home";
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,

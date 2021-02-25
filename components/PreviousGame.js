@@ -42,7 +42,27 @@ function PreviousGame({ navigation, date, gameType }) {
 						24.02.21
 					</Text>
 				</View>
+				<Text
+					style={{
+						color: "#49CD8D",
+						fontSize: 10,
+						textAlign: "left",
+						paddingVertical: 10,
+					}}
+				>
+					Highlighted players
+				</Text>
 				<Highlights />
+				<Text
+					style={{
+						color: "#49CD8D",
+						fontSize: 10,
+						textAlign: "left",
+						paddingVertical: 10,
+					}}
+				>
+					Scoreboard
+				</Text>
 				<Table />
 			</View>
 		</View>
@@ -109,7 +129,7 @@ function Table() {
 		{ player: "Jesus", kills: 0, deaths: 1, revives: 10 },
 	];
 	return (
-		<View style={{ paddingVertical: 30, flex: 0.5 }}>
+		<View style={{ paddingBottom: 30, flex: 0.5 }}>
 			<TableHeader />
 			<View
 				style={{

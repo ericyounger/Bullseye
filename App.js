@@ -1,34 +1,30 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import {
-	SafeAreaView,
-	ScrollView,
 	StyleSheet,
 	Text,
 	View,
-	Button,
 	TouchableOpacity,
 	ImageBackground,
 } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { LinearGradient } from "expo-linear-gradient";
-import HomeScreen from "./components/Home";
-import Join from "./components/Join";
-import Create from "./components/Create";
-import Player from "./components/Player";
-import ChooseTeam from "./components/enterMatch/ChooseTeam";
+import HomeScreen from "./pages/home/Home";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Login from "./components/LoginAndRegister/Login";
 import Register from "./components/LoginAndRegister/Register";
-import Profile from "./components/player/Profile";
 import Settings from "./components/player/Settings";
 import Statistics from "./components/player/Statistics";
 import InGame from "./components/InGame";
-import GamePreScreen from "./components/enterMatch/GamePreScreen";
 import PreviousGame from "./components/PreviousGame";
+import JoinPinScreen from "./pages/join/JoinPinScreen";
+import Create from "./pages/create/Create";
+import ChooseTeam from "./pages/join/ChooseTeam";
+import Player from "./pages/player/Player";
+import Profile from "./pages/player/Profile";
+import GamePreScreen from "./pages/create/GamePreScreen";
 
 const MyTheme = {
 	dark: true,
@@ -83,7 +79,7 @@ export default function App() {
 				<NavigationContainer theme={MyTheme}>
 					<Tab.Navigator tabBar={(props) => <Menu {...props} />}>
 						<Tab.Screen name="Home" component={HomeScreen} />
-						<Tab.Screen name="Join" component={Join} />
+						<Tab.Screen name="Join" component={JoinPinScreen} />
 						<Tab.Screen name="Create" component={Create} />
 						<Tab.Screen name="Player" component={Player} />
 						<Tab.Screen name="Choose Team" component={ChooseTeam} />
