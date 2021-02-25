@@ -13,8 +13,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./pages/home/Home";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import InGame from "./components/InGame";
-import PreviousGame from "./components/PreviousGame";
 import JoinPinScreen from "./pages/join/JoinPinScreen";
 import Create from "./pages/create/Create";
 import ChooseTeam from "./pages/join/ChooseTeam";
@@ -25,6 +23,8 @@ import Settings from "./pages/player/Settings";
 import Statistics from "./pages/player/Statistics";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import InGame from "./pages/inGame/InGame";
+import PreviousGame from "./pages/previousGame/PreviousGame";
 
 const MyTheme = {
 	dark: true,
