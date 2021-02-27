@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
         marginTop: 40,
         justifyContent: "center",
         alignSelf: "center",
-        color: "white",
     },
 });
 
