@@ -1,5 +1,7 @@
+/* eslint-disable global-require */
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, View, Text, FlatList } from "react-native";
 import "react-native-gesture-handler";
 import ActiveGame from "../../components/homeComponents/ActiveGame";
 import GameLogItem from "../../components/homeComponents/GameLogItem";
@@ -55,7 +57,7 @@ function HomeScreen({ navigation }) {
             <Text style={styles.fontWhiteStatusHeader}>Previous games</Text>
             <FlatList
                 data={dataMock}
-                keyExtractor={(item, index) => item.key + "a" + index}
+                keyExtractor={(item, index) => `${item.key} a ${index}`}
                 renderItem={({ item }) => (
                     <GameLogItem
                         key={item.key}

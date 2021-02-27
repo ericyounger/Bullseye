@@ -1,6 +1,9 @@
-import React from "react";
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-unused-vars */
+/* eslint-disable global-require */
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
 import {
     StyleSheet,
     Text,
@@ -11,8 +14,8 @@ import {
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./pages/home/Home";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import HomeScreen from "./pages/home/Home";
 import JoinPinScreen from "./pages/join/JoinPinScreen";
 import Create from "./pages/create/Create";
 import ChooseTeam from "./pages/join/ChooseTeam";
@@ -38,9 +41,29 @@ const MyTheme = {
     },
 };
 
+const styles = StyleSheet.create({
+    menu: {
+        backgroundColor: "#313334",
+        borderRadius: 10,
+        flexDirection: "row",
+        height: 63,
+        marginHorizontal: 20,
+        marginBottom: 20,
+        color: "#fff",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+    },
+});
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+    // eslint-disable-next-line no-unused-vars
     const [loggedIn, setLoggedIn] = useState(true);
 
     if (!loggedIn) {
@@ -70,57 +93,35 @@ export default function App() {
                 </NavigationContainer>
             </ImageBackground>
         );
-    } else {
-        return (
-            <ImageBackground
-                source={require("./assets/blurBackground.jpg")}
-                style={styles.image}
-            >
-                <NavigationContainer theme={MyTheme}>
-                    <Tab.Navigator tabBar={(props) => <Menu {...props} />}>
-                        <Tab.Screen name="Home" component={HomeScreen} />
-                        <Tab.Screen name="Join" component={JoinPinScreen} />
-                        <Tab.Screen name="Create" component={Create} />
-                        <Tab.Screen name="Player" component={Player} />
-                        <Tab.Screen name="Choose Team" component={ChooseTeam} />
-                        <Tab.Screen name="Profile" component={Profile} />
-                        <Tab.Screen name="Statistics" component={Statistics} />
-                        <Tab.Screen name="Settings" component={Settings} />
-                        <Tab.Screen name="InGame" component={InGame} />
-                        <Tab.Screen
-                            name="GamePreScreen"
-                            component={GamePreScreen}
-                        />
-                        <Tab.Screen
-                            name="Previous Game"
-                            component={PreviousGame}
-                        />
-                    </Tab.Navigator>
-                    <StatusBar style="auto" />
-                </NavigationContainer>
-            </ImageBackground>
-        );
     }
-}
 
-const styles = StyleSheet.create({
-    menu: {
-        backgroundColor: "#313334",
-        borderRadius: 10,
-        flexDirection: "row",
-        height: 63,
-        marginHorizontal: 20,
-        marginBottom: 20,
-        color: "#fff",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    image: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center",
-    },
-});
+    return (
+        <ImageBackground
+            source={require("./assets/blurBackground.jpg")}
+            style={styles.image}
+        >
+            <NavigationContainer theme={MyTheme}>
+                <Tab.Navigator tabBar={(props) => <Menu {...props} />}>
+                    <Tab.Screen name="Home" component={HomeScreen} />
+                    <Tab.Screen name="Join" component={JoinPinScreen} />
+                    <Tab.Screen name="Create" component={Create} />
+                    <Tab.Screen name="Player" component={Player} />
+                    <Tab.Screen name="Choose Team" component={ChooseTeam} />
+                    <Tab.Screen name="Profile" component={Profile} />
+                    <Tab.Screen name="Statistics" component={Statistics} />
+                    <Tab.Screen name="Settings" component={Settings} />
+                    <Tab.Screen name="InGame" component={InGame} />
+                    <Tab.Screen
+                        name="GamePreScreen"
+                        component={GamePreScreen}
+                    />
+                    <Tab.Screen name="Previous Game" component={PreviousGame} />
+                </Tab.Navigator>
+                <StatusBar style="auto" />
+            </NavigationContainer>
+        </ImageBackground>
+    );
+}
 
 function Menu({ state, descriptors, navigation }) {
     const notInMenuBar = [
