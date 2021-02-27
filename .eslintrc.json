@@ -1,0 +1,27 @@
+{
+    "extends":[
+       "airbnb-base",
+       "prettier",
+       "plugin:prettier/recommended",
+       "plugin:react/recommended",
+       "eslint-config-prettier"
+    ],
+    "parser":"babel-eslint",
+    "rules":{
+       "import/no-unresolved":"off",
+       "react/prop-types": 0,
+       "react/jsx-filename-extension":[
+          1,
+          {
+             "extensions":[
+                ".js",
+                ".jsx"
+             ]
+          }
+       ],
+       "prettier/prettier": "error"
+    },
+    "plugins":[
+       "prettier"
+    ]
+ }
