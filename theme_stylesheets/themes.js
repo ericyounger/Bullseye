@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import { StyleSheet } from "react-native";
 
 export const darkTheme = StyleSheet.create({
@@ -23,8 +24,11 @@ export const darkTheme = StyleSheet.create({
     titleFont: {
         color: "orange",
     },
-    labelFont: {
+    primaryColor: {
         color: "#49CD8D",
+    },
+    secondaryColor: {
+        color: "#457281",
     },
     PreviousGamecard: {
         width: "90%",
@@ -65,6 +69,15 @@ export const darkTheme = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 10,
     },
+    teamBlue: {
+        backgroundColor: "rgba(41, 96, 178, 0.2)",
+    },
+    teamRed: {
+        backgroundColor: "rgba(178, 41, 41, 0.2)",
+    },
+    gamePinScreen: {
+        backgroundColor: "rgba(117, 117, 117, 0.2)",
+    },
 });
 
 export const lightTheme = StyleSheet.create({
@@ -90,8 +103,11 @@ export const lightTheme = StyleSheet.create({
     titleFont: {
         color: "orange",
     },
-    labelFont: {
-        color: "#49CD8D",
+    primaryColor: {
+        color: "#014d28",
+    },
+    secondaryColor: {
+        color: "#459dba",
     },
     PreviousGamecard: {
         width: "90%",
@@ -131,6 +147,15 @@ export const lightTheme = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
         marginBottom: 10,
+    },
+    teamBlue: {
+        backgroundColor: "rgba(41, 96, 178, 1)",
+    },
+    teamRed: {
+        backgroundColor: "rgba(178, 41, 41, 1)",
+    },
+    gamePinScreen: {
+        backgroundColor: "rgba(117, 117, 117, 1)",
     },
 });
 

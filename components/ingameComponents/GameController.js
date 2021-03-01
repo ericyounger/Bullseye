@@ -10,7 +10,7 @@ function GameController({ decrementText, incrementText }) {
                     justifyContent: "center",
                     alignItems: "center",
                     margin: 5,
-                    backgroundColor: "rgba(73, 205, 141, 0.1)",
+                    backgroundColor: "rgba(73, 205, 141, 0.2)",
                     borderRadius: 10,
                     borderColor: "rgba(69, 114, 129, 1)",
                     borderWidth: 1,

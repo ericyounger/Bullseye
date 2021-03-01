@@ -49,14 +49,22 @@ function TeamList({ role }) {
 
     return (
         <View style={{ flex: 1 }}>
-            <Text style={{ color: "#49CD8D", paddingVertical: 7 }}>
+            <Text
+                style={[
+                    themeContext.theme.primaryColor,
+                    { paddingVertical: 7 },
+                ]}
+            >
                 Choose team
             </Text>
             <View style={{ flexDirection: "row", flex: 1 }}>
                 <View
                     style={[
                         styles.teamSelection,
-                        { backgroundColor: "rgba(41, 96, 178, 0.2)" },
+                        {
+                            backgroundColor:
+                                themeContext.theme.teamBlue.backgroundColor,
+                        },
                     ]}
                 >
                     <Text style={[themeContext.theme.spanFont]}>
@@ -68,7 +76,10 @@ function TeamList({ role }) {
                 <View
                     style={[
                         styles.teamSelection,
-                        { backgroundColor: "rgba(178, 41, 41, 0.2)" },
+                        {
+                            backgroundColor:
+                                themeContext.theme.teamRed.backgroundColor,
+                        },
                     ]}
                 >
                     <Text style={[themeContext.theme.spanFont]}>

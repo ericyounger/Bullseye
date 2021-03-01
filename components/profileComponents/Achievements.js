@@ -7,7 +7,7 @@ function Achievements() {
 
     return (
         <View style={{ paddingTop: 10 }}>
-            <Text style={[themeContext.theme.titleFont]}>Achievements</Text>
+            <Text style={[themeContext.theme.primaryColor]}>Achievements</Text>
             <View style={{ paddingTop: 5 }}>
                 <Text style={[themeContext.theme.spanFont]}>* Team killer</Text>
                 <Text style={[themeContext.theme.spanFont]}>* Rambo</Text>

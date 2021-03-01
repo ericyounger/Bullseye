@@ -18,7 +18,7 @@ function StartGame() {
     return (
         <View
             style={{
-                flex: 0.1,
+                height: 50,
                 justifyContent: "center",
                 alignItems: "center",
             }}

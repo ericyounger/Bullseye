@@ -9,18 +9,6 @@ import ThemeContext from "../../components/contexts/ThemeContext";
 const Tab = createMaterialTopTabNavigator();
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    createCard: {
-        flex: 0.9,
-        width: "90%",
-        borderRadius: 20,
-        backgroundColor: "rgba(52, 52, 52, 0.8)",
-        padding: 20,
-    },
     button: {
         backgroundColor: "#457281",
         width: 150,

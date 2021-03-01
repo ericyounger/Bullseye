@@ -15,7 +15,7 @@ function StatusChooseTeam({ gameStarted, countdown }) {
         <View>
             <Text
                 style={[
-                    themeContext.theme.fontSpan,
+                    themeContext.theme.spanFont,
                     { textAlign: "center", fontSize: 15 },
                 ]}
             >

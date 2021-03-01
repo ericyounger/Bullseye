@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 import ItemCounter from "./ItemCounter";
 import ToggleSwitch from "./ToggleSwitch";
 
 function GameType() {
+    const themeContext = useContext(ThemeContext);
+
     return (
         <View>
             <View style={{ paddingTop: 20 }}>
-                <Text style={{ color: "#49CD8D", fontSize: 10 }}>Type</Text>
+                <Text
+                    style={[themeContext.theme.primaryColor, { fontSize: 10 }]}
+                >
+                    Type
+                </Text>
                 <Text>Dropdown Gametype</Text>
             </View>
             <View style={{ paddingTop: 20 }}>
-                <Text style={{ color: "#49CD8D", fontSize: 10 }}>
+                <Text
+                    style={[themeContext.theme.primaryColor, { fontSize: 10 }]}
+                >
                     Game settings
                 </Text>
                 <ToggleSwitch displayText="Enable juggernauts" />
@@ -19,7 +28,9 @@ function GameType() {
                 <ToggleSwitch displayText="Friendly fire" />
             </View>
             <View style={{ paddingTop: 20 }}>
-                <Text style={{ color: "#49CD8D", fontSize: 10 }}>
+                <Text
+                    style={[themeContext.theme.primaryColor, { fontSize: 10 }]}
+                >
                     Team settings
                 </Text>
                 <ItemCounter

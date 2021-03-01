@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View, TextInput, Switch } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 const styles = StyleSheet.create({
     inputField: {
@@ -22,11 +23,18 @@ const styles = StyleSheet.create({
 });
 
 function FieldChange({ fieldName, fieldValue, defaultToggleValue }) {
+    const themeContext = useContext(ThemeContext);
+
     const [toggleValue, setToggleValue] = useState(defaultToggleValue);
     const [inputField, setInputField] = useState(fieldValue);
     return (
         <View style={{ paddingBottom: 5 }}>
-            <Text style={{ color: "#189881", fontSize: 9, paddingBottom: 5 }}>
+            <Text
+                style={[
+                    themeContext.theme.primaryColor,
+                    { fontSize: 9, paddingBottom: 5 },
+                ]}
+            >
                 {fieldName}
             </Text>
             <View style={{ flexDirection: "row" }}>

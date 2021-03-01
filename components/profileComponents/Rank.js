@@ -10,7 +10,7 @@ function Rank() {
 
     return (
         <View>
-            <Text style={[themeContext.theme.titleFont]}>Rank</Text>
+            <Text style={[themeContext.theme.primaryColor]}>Rank</Text>
             <View style={{ flexDirection: "row", paddingVertical: 10 }}>
                 <View style={{ flex: 0.2, flexDirection: "row" }}>
                     <Ionicons

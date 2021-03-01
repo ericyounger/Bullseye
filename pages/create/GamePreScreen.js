@@ -1,19 +1,23 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React, { useContext } from "react";
+import { ScrollView, Text, View } from "react-native";
 import Card from "../../components/card/Card";
+import ThemeContext from "../../components/contexts/ThemeContext";
 import TeamList from "../../components/joinComponents/TeamList";
 
 function GamePreScreen() {
+    const themeContext = useContext(ThemeContext);
+
     return (
         <Card title="Team deathmatch" date="24.02.21">
             <View
                 style={{
-                    flex: 0.2,
+                    height: 100,
                     borderRadius: 10,
-                    backgroundColor: "rgba(117, 117, 117, 0.2)",
+                    backgroundColor:
+                        themeContext.theme.gamePinScreen.backgroundColor,
                 }}
             >
-                <View style={{ height: 20 }}>
+                <View style={{ height: 15 }}>
                     <Text
                         style={{
                             color: "#49CD8D",
@@ -46,7 +50,7 @@ function GamePreScreen() {
                 </View>
             </View>
 
-            <View style={{ flex: 0.8 }}>
+            <View style={{ flex: 1 }}>
                 <TeamList role="creator" />
             </View>
         </Card>

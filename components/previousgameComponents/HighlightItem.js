@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 function HighlightItem({ player, highlightText }) {
+    const contextTheme = useContext(ThemeContext);
+
     return (
         <View
             style={{
@@ -13,7 +16,7 @@ function HighlightItem({ player, highlightText }) {
                 borderRadius: 10,
             }}
         >
-            <Text style={{ color: "#457281" }}>#{player}</Text>
+            <Text style={contextTheme.theme.secondaryColor}>#{player}</Text>
             <Text style={{ color: "white" }}>{highlightText}</Text>
         </View>
     );

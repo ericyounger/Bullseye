@@ -1,30 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text } from "react-native";
 import Card from "../../components/card/Card";
+import ThemeContext from "../../components/contexts/ThemeContext";
 import Highlights from "../../components/previousgameComponents/Highlights";
 import Table from "../../components/previousgameComponents/Table";
 
 function PreviousGame() {
+    const themeContext = useContext(ThemeContext);
+
     return (
         <Card title="Team deathmatch" date="24.02.21">
             <Text
-                style={{
-                    color: "#49CD8D",
-                    fontSize: 10,
-                    textAlign: "left",
-                    paddingVertical: 10,
-                }}
+                style={[
+                    themeContext.theme.primaryColor,
+                    {
+                        fontSize: 10,
+                        textAlign: "left",
+                        paddingVertical: 10,
+                    },
+                ]}
             >
                 Highlighted players
             </Text>
             <Highlights />
             <Text
-                style={{
-                    color: "#49CD8D",
-                    fontSize: 10,
-                    textAlign: "left",
-                    paddingVertical: 10,
-                }}
+                style={[
+                    themeContext.theme.primaryColor,
+                    {
+                        fontSize: 10,
+                        textAlign: "left",
+                        paddingVertical: 10,
+                    },
+                ]}
             >
                 Scoreboard
             </Text>
