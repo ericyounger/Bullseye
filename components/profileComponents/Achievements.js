@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 function Achievements() {
+    const themeContext = useContext(ThemeContext);
+
     return (
         <View style={{ paddingTop: 10 }}>
-            <Text style={{ color: "#BD7C2F" }}>Achievements</Text>
+            <Text style={[themeContext.theme.titleFont]}>Achievements</Text>
             <View style={{ paddingTop: 5 }}>
-                <Text style={{ color: "white" }}>* Team killer</Text>
-                <Text style={{ color: "white" }}>* Rambo</Text>
-                <Text style={{ color: "white" }}>* Fragger</Text>
+                <Text style={[themeContext.theme.spanFont]}>* Team killer</Text>
+                <Text style={[themeContext.theme.spanFont]}>* Rambo</Text>
+                <Text style={[themeContext.theme.spanFont]}>* Fragger</Text>
             </View>
         </View>
     );

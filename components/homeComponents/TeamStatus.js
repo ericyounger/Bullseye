@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 function TeamStatus() {
+    const themeContext = useContext(ThemeContext);
+
     return (
         <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
             <View
@@ -13,7 +16,9 @@ function TeamStatus() {
                     marginRight: 7,
                 }}
             ></View>
-            <Text style={{ color: "white", marginRight: 10 }}>25</Text>
+            <Text style={[themeContext.theme.spanFont, { marginRight: 10 }]}>
+                25
+            </Text>
             <View
                 style={{
                     width: 23,
@@ -23,7 +28,7 @@ function TeamStatus() {
                     marginRight: 7,
                 }}
             ></View>
-            <Text style={{ color: "white" }}>11</Text>
+            <Text style={[themeContext.theme.spanFont]}>11</Text>
         </View>
     );
 }

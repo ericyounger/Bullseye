@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import Slider from "@react-native-community/slider";
+import ThemeContext from "../contexts/ThemeContext";
 
 function SliderComponent({
     type,
@@ -11,15 +12,21 @@ function SliderComponent({
     defaultValue,
 }) {
     const [sliderValue, setSliderValue] = useState(defaultValue);
+    const themeContext = useContext(ThemeContext);
 
     return (
         <View>
             <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 0.5 }}>
-                    <Text style={{ color: "white" }}>{type}:</Text>
+                    <Text style={[themeContext.theme.spanFont]}>{type}:</Text>
                 </View>
                 <View style={{ flex: 0.5 }}>
-                    <Text style={{ color: "white", marginLeft: "auto" }}>
+                    <Text
+                        style={[
+                            themeContext.theme.spanFont,
+                            { marginLeft: "auto" },
+                        ]}
+                    >
                         {sliderValue.toFixed(0)} {units}
                     </Text>
                 </View>

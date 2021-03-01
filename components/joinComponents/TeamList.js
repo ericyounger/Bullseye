@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 import StartGame from "../createComponents/StartGame";
 import ChooseTeamButtons from "./ChooseTeamButtons";
 import StatusChooseTeam from "./StatusChooseTeam";
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
 
 function TeamList({ role }) {
     const [teamChosen, setTeamChosen] = useState(false);
+    const themeContext = useContext(ThemeContext);
 
     function chooseTeamCallback(event) {
         console.log(`${event} team chosen`);
@@ -57,8 +59,10 @@ function TeamList({ role }) {
                         { backgroundColor: "rgba(41, 96, 178, 0.2)" },
                     ]}
                 >
-                    <Text style={{ color: "#fff" }}>#pigglyWiggly</Text>
-                    <Text style={{ color: "#fff" }}>#Slayer</Text>
+                    <Text style={[themeContext.theme.spanFont]}>
+                        #pigglyWiggly
+                    </Text>
+                    <Text style={[themeContext.theme.spanFont]}>#Slayer</Text>
                 </View>
 
                 <View
@@ -67,8 +71,12 @@ function TeamList({ role }) {
                         { backgroundColor: "rgba(178, 41, 41, 0.2)" },
                     ]}
                 >
-                    <Text style={{ color: "#fff" }}>#Ole brumm</Text>
-                    <Text style={{ color: "#fff" }}>#Nasse nøff</Text>
+                    <Text style={[themeContext.theme.spanFont]}>
+                        #Ole brumm
+                    </Text>
+                    <Text style={[themeContext.theme.spanFont]}>
+                        #Nasse nøff
+                    </Text>
                 </View>
             </View>
             {!teamChosen ? (

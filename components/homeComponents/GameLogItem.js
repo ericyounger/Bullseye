@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 import StatusLine from "./StatusLine";
 
 const styles = StyleSheet.create({
@@ -42,7 +43,6 @@ const styles = StyleSheet.create({
         color: "#fff",
     },
     gameStatusDescription: {
-        color: "white",
         fontSize: 34,
     },
     zombieImage: {
@@ -59,6 +59,8 @@ function GameLogItem({
     image,
     navigation,
 }) {
+    const themeContext = useContext(ThemeContext);
+
     function onGameLogItemClicked() {
         navigation.navigate("Previous Game");
     }
@@ -66,7 +68,7 @@ function GameLogItem({
     return (
         <TouchableOpacity onPress={onGameLogItemClicked}>
             <View
-                style={styles.PreviousGamecard}
+                style={[themeContext.theme.PreviousGamecard]}
                 onTouchEnd={onGameLogItemClicked}
             >
                 <View style={styles.flexColumnDirection}>
@@ -78,9 +80,16 @@ function GameLogItem({
                         <View style={styles.flexColumnDirection}>
                             <View style={styles.flexRowDirectionStartEnd}>
                                 <Text style={styles.gameType}>{gameType}</Text>
-                                <Text style={styles.gameDate}>{gameDate}</Text>
+                                <Text style={[themeContext.theme.spanFont]}>
+                                    {gameDate}
+                                </Text>
                             </View>
-                            <Text style={styles.gameStatusDescription}>
+                            <Text
+                                style={[
+                                    themeContext.theme.spanFont,
+                                    styles.gameStatusDescription,
+                                ]}
+                            >
                                 {gameDescription}
                             </Text>
                         </View>

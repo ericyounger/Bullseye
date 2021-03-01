@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 function StatusChooseTeam({ gameStarted, countdown }) {
     const [message, setMessage] = useState("Waiting for the game to start");
+    const themeContext = useContext(ThemeContext);
+
     useEffect(() => {
         if (gameStarted) {
             setMessage(`Game starting in: ${countdown}`);
@@ -10,7 +13,12 @@ function StatusChooseTeam({ gameStarted, countdown }) {
     }, [gameStarted]);
     return (
         <View>
-            <Text style={{ textAlign: "center", color: "white", fontSize: 15 }}>
+            <Text
+                style={[
+                    themeContext.theme.fontSpan,
+                    { textAlign: "center", fontSize: 15 },
+                ]}
+            >
                 {message}
             </Text>
         </View>

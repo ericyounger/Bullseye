@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 const styles = StyleSheet.create({
     IncDec: {
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
 
 function ItemCounter({ text, min, max, defaultValue }) {
     const [counter, setCounter] = useState(0);
+    const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
         setCounter(defaultValue);
@@ -30,7 +32,7 @@ function ItemCounter({ text, min, max, defaultValue }) {
         <View
             style={{ flexDirection: "row", paddingBottom: 10, paddingTop: 5 }}
         >
-            <Text style={{ color: "white" }}>{text}</Text>
+            <Text style={[themeContext.theme.spanFont]}>{text}</Text>
             <View style={{ flexDirection: "row", marginLeft: "auto" }}>
                 <TouchableOpacity
                     style={[styles.IncDec]}
@@ -38,7 +40,12 @@ function ItemCounter({ text, min, max, defaultValue }) {
                 >
                     <Text style={{ color: "white", fontSize: 20 }}>-</Text>
                 </TouchableOpacity>
-                <Text style={{ color: "white", marginLeft: 10, fontSize: 20 }}>
+                <Text
+                    style={[
+                        themeContext.theme.spanFont,
+                        { marginLeft: 10, fontSize: 20 },
+                    ]}
+                >
                     {counter}
                 </Text>
                 <TouchableOpacity

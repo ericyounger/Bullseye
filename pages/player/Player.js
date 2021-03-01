@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import ThemeContext from "../../components/contexts/ThemeContext";
 
 const styles = StyleSheet.create({
     container: {
@@ -19,6 +20,8 @@ const styles = StyleSheet.create({
 });
 
 function Player({ navigation }) {
+    const themeContext = useContext(ThemeContext);
+
     function onProfileClick() {
         navigation.navigate("Profile");
     }
@@ -32,14 +35,23 @@ function Player({ navigation }) {
     }
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={onStatisticsClick}>
-                <Text style={{ color: "white" }}>Statistics</Text>
+            <TouchableOpacity
+                style={[themeContext.theme.playerPageButtons]}
+                onPress={onStatisticsClick}
+            >
+                <Text style={[themeContext.theme.spanFont]}>Statistics</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={onProfileClick}>
-                <Text style={{ color: "white" }}>Profile</Text>
+            <TouchableOpacity
+                style={[themeContext.theme.playerPageButtons]}
+                onPress={onProfileClick}
+            >
+                <Text style={[themeContext.theme.spanFont]}>Profile</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={onSettingsClick}>
-                <Text style={{ color: "white" }}>Settings</Text>
+            <TouchableOpacity
+                style={[themeContext.theme.playerPageButtons]}
+                onPress={onSettingsClick}
+            >
+                <Text style={[themeContext.theme.spanFont]}>Settings</Text>
             </TouchableOpacity>
         </View>
     );

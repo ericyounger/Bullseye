@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View, Switch } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 const styles = StyleSheet.create({
     switchField: {
@@ -14,11 +15,14 @@ const styles = StyleSheet.create({
 
 function GeneralProfileField({ textDescription, defaultToggleValue }) {
     const [toggleValue, setToggleValue] = useState(defaultToggleValue);
+    const themeContext = useContext(ThemeContext);
 
     return (
         <View style={{ flexDirection: "row", paddingTop: 10 }}>
             <View style={styles.textProfileField}>
-                <Text style={{ color: "white", textAlign: "left" }}>
+                <Text
+                    style={[themeContext.theme.spanFont, { textAlign: "left" }]}
+                >
                     {textDescription}
                 </Text>
             </View>

@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text, View, Switch } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
-function ToggleSwitch({ displayText }) {
-    const [toggleValue, setToggleValue] = useState(false);
+function ToggleSwitch({
+    displayText,
+    callback = () => {},
+    defaultValue = false,
+}) {
+    const [toggleValue, setToggleValue] = useState(defaultValue);
+    const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
-        //  callback(toggleValue);
+        callback(toggleValue);
     }, [toggleValue]);
 
     return (
@@ -13,7 +19,7 @@ function ToggleSwitch({ displayText }) {
             style={{ flexDirection: "row", paddingBottom: 10, paddingTop: 5 }}
         >
             <View>
-                <Text style={{ color: "white", fontSize: 16 }}>
+                <Text style={[themeContext.theme.spanFont, { fontSize: 16 }]}>
                     {displayText}
                 </Text>
             </View>

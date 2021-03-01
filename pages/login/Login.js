@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
     StyleSheet,
     Text,
@@ -6,6 +6,7 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
+import UserContext from "../../components/contexts/UserContext";
 import Logo from "../../components/imageComponents/Logo";
 
 const styles = StyleSheet.create({
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
 function Login({ navigation }) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const userContext = useContext(UserContext);
 
     function onRegister() {
         navigation.navigate("Register");
@@ -95,7 +97,10 @@ function Login({ navigation }) {
                     >
                         <Text>Register</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.loginBtn}>
+                    <TouchableOpacity
+                        style={styles.loginBtn}
+                        onPress={() => userContext.setLoggedIn(true)}
+                    >
                         <Text>Login</Text>
                     </TouchableOpacity>
                 </View>

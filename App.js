@@ -2,7 +2,7 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
 /* eslint-disable global-require */
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
     StyleSheet,
@@ -28,6 +28,9 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import InGame from "./pages/inGame/InGame";
 import PreviousGame from "./pages/previousGame/PreviousGame";
+import UserContext from "./components/contexts/UserContext";
+import ThemeContext from "./components/contexts/ThemeContext";
+import { backgrounds, darkTheme, lightTheme } from "./theme_stylesheets/themes";
 
 const MyTheme = {
     dark: true,
@@ -64,66 +67,102 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
     // eslint-disable-next-line no-unused-vars
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
+    const [theme, setTheme] = useState(darkTheme);
+    const [background, setBackground] = useState(null);
+
+    useEffect(() => {
+        if (darkMode) {
+            setTheme(darkTheme);
+            setBackground(backgrounds.darkBackground);
+        } else {
+            setTheme(lightTheme);
+            setBackground(backgrounds.lightBackground);
+        }
+    }, [darkMode]);
+
+    const userContextValues = {
+        loggedIn,
+        user: {},
+        setLoggedIn,
+    };
+
+    const themeContextValues = {
+        theme,
+        setDarkMode,
+    };
 
     if (!loggedIn) {
         return (
-            <ImageBackground
-                source={require("./assets/blurBackground.jpg")}
-                style={styles.image}
-            >
-                <NavigationContainer theme={MyTheme}>
-                    <Tab.Navigator>
-                        <Tab.Screen
-                            name="Login"
-                            component={Login}
-                            options={({ route }) => ({
-                                tabBarVisible: false,
-                            })}
-                        />
-                        <Tab.Screen
-                            name="Register"
-                            component={Register}
-                            options={({ route }) => ({
-                                tabBarVisible: false,
-                            })}
-                        />
-                    </Tab.Navigator>
-                    <StatusBar style="auto" />
-                </NavigationContainer>
-            </ImageBackground>
+            <ThemeContext.Provider value={themeContextValues}>
+                <UserContext.Provider value={userContextValues}>
+                    <ImageBackground source={background} style={styles.image}>
+                        <NavigationContainer theme={MyTheme}>
+                            <Tab.Navigator>
+                                <Tab.Screen
+                                    name="Login"
+                                    component={Login}
+                                    options={({ route }) => ({
+                                        tabBarVisible: false,
+                                    })}
+                                />
+                                <Tab.Screen
+                                    name="Register"
+                                    component={Register}
+                                    options={({ route }) => ({
+                                        tabBarVisible: false,
+                                    })}
+                                />
+                            </Tab.Navigator>
+                            <StatusBar style="auto" />
+                        </NavigationContainer>
+                    </ImageBackground>
+                </UserContext.Provider>
+            </ThemeContext.Provider>
         );
     }
 
     return (
-        <ImageBackground
-            source={require("./assets/blurBackground.jpg")}
-            style={styles.image}
-        >
-            <NavigationContainer theme={MyTheme}>
-                <Tab.Navigator tabBar={(props) => <Menu {...props} />}>
-                    <Tab.Screen name="Home" component={HomeScreen} />
-                    <Tab.Screen name="Join" component={JoinPinScreen} />
-                    <Tab.Screen name="Create" component={Create} />
-                    <Tab.Screen name="Player" component={Player} />
-                    <Tab.Screen name="Choose Team" component={ChooseTeam} />
-                    <Tab.Screen name="Profile" component={Profile} />
-                    <Tab.Screen name="Statistics" component={Statistics} />
-                    <Tab.Screen name="Settings" component={Settings} />
-                    <Tab.Screen name="InGame" component={InGame} />
-                    <Tab.Screen
-                        name="GamePreScreen"
-                        component={GamePreScreen}
-                    />
-                    <Tab.Screen name="Previous Game" component={PreviousGame} />
-                </Tab.Navigator>
-                <StatusBar style="auto" />
-            </NavigationContainer>
-        </ImageBackground>
+        <ThemeContext.Provider value={themeContextValues}>
+            <UserContext.Provider value={userContextValues}>
+                <ImageBackground source={background} style={styles.image}>
+                    <NavigationContainer theme={MyTheme}>
+                        <Tab.Navigator tabBar={(props) => <Menu {...props} />}>
+                            <Tab.Screen name="Home" component={HomeScreen} />
+                            <Tab.Screen name="Join" component={JoinPinScreen} />
+                            <Tab.Screen name="Create" component={Create} />
+                            <Tab.Screen name="Player" component={Player} />
+                            <Tab.Screen
+                                name="Choose Team"
+                                component={ChooseTeam}
+                            />
+                            <Tab.Screen name="Profile" component={Profile} />
+                            <Tab.Screen
+                                name="Statistics"
+                                component={Statistics}
+                            />
+                            <Tab.Screen name="Settings" component={Settings} />
+                            <Tab.Screen name="InGame" component={InGame} />
+                            <Tab.Screen
+                                name="GamePreScreen"
+                                component={GamePreScreen}
+                            />
+                            <Tab.Screen
+                                name="Previous Game"
+                                component={PreviousGame}
+                            />
+                        </Tab.Navigator>
+                        <StatusBar style="auto" />
+                    </NavigationContainer>
+                </ImageBackground>
+            </UserContext.Provider>
+        </ThemeContext.Provider>
     );
 }
 
 function Menu({ state, descriptors, navigation }) {
+    const themeContext = useContext(ThemeContext);
     const notInMenuBar = [
         "Choose Team",
         "Profile",
@@ -135,7 +174,7 @@ function Menu({ state, descriptors, navigation }) {
     ];
 
     return (
-        <View style={styles.menu}>
+        <View style={[themeContext.theme.menu]}>
             {state.routes
                 .filter((r) => !notInMenuBar.includes(r.name))
                 .map((route, index) => {
@@ -183,32 +222,39 @@ function Menu({ state, descriptors, navigation }) {
                                 <Ionicons
                                     name={"game-controller-outline"}
                                     size={22}
-                                    color={"#fff"}
+                                    color={themeContext.theme.spanFont.color}
                                 />
                             ) : null}
                             {route.name === "Join" ? (
                                 <Ionicons
                                     name={"globe-outline"}
                                     size={22}
-                                    color={"#fff"}
+                                    color={themeContext.theme.spanFont.color}
                                 />
                             ) : null}
                             {route.name === "Create" ? (
                                 <Ionicons
                                     name={"add-circle-outline"}
                                     size={22}
-                                    color={"#fff"}
+                                    color={themeContext.theme.spanFont.color}
                                 />
                             ) : null}
                             {route.name === "Player" ? (
                                 <Ionicons
                                     name={"person-circle-outline"}
                                     size={22}
-                                    color={"#fff"}
+                                    color={themeContext.theme.spanFont.color}
                                 />
                             ) : null}
                             <Text
-                                style={{ color: isFocused ? "orange" : "#fff" }}
+                                style={[
+                                    themeContext.theme.spanFont,
+                                    {
+                                        color: isFocused
+                                            ? "orange"
+                                            : themeContext.theme.spanFont.color,
+                                    },
+                                ]}
                             >
                                 {label}
                             </Text>

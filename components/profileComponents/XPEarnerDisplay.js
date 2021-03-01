@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text, View } from "react-native";
+import ThemeContext from "../contexts/ThemeContext";
 
 function XPEarnerDisplay({ xpEarned, xpMaxThisLevel }) {
     const [procentXP, setProcentXP] = useState(37);
+    const themeContext = useContext(ThemeContext);
 
     useEffect(() => {
         setProcentXP((100 * (xpEarned / xpMaxThisLevel)).toFixed(0));
@@ -30,7 +32,7 @@ function XPEarnerDisplay({ xpEarned, xpMaxThisLevel }) {
             />
             <Text
                 style={{
-                    color: "white",
+                    color: themeContext.theme.spanFont.color,
                     fontSize: 10,
                     textAlign: "right",
                     paddingTop: 5,

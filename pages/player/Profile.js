@@ -1,52 +1,37 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useContext } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-
 import ProfileTop from "../../components/profileComponents/ProfileTop";
 import ProfileAchievements from "../../components/profileComponents/ProfileAchievements";
 import ProfileUserInformation from "../../components/profileComponents/ProfileUserInformation";
+import Card from "../../components/card/Card";
+import ThemeContext from "../../components/contexts/ThemeContext";
 
 const Tab = createMaterialTopTabNavigator();
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    profileCard: {
-        flex: 0.9,
-        width: "90%",
-        borderRadius: 20,
-        backgroundColor: "rgba(52, 52, 52, 0.8)",
-        padding: 20,
-    },
-});
-
 function Profile() {
+    const themeContext = useContext(ThemeContext);
+
     return (
-        <View style={styles.container}>
-            <View style={styles.profileCard}>
-                <ProfileTop />
-                <Tab.Navigator
-                    tabBarOptions={{
-                        labelStyle: { fontSize: 7 },
-                        tabStyle: { width: 100 },
-                        indicatorStyle: { backgroundColor: "#457281" },
-                        style: { backgroundColor: "transparent" },
-                    }}
-                >
-                    <Tab.Screen
-                        name="Achievements"
-                        component={ProfileAchievements}
-                    />
-                    <Tab.Screen
-                        name="Profile info"
-                        component={ProfileUserInformation}
-                    />
-                </Tab.Navigator>
-            </View>
-        </View>
+        <Card>
+            <ProfileTop />
+            <Tab.Navigator
+                tabBarOptions={{
+                    labelStyle: [themeContext.theme.spanFont, { fontSize: 7 }],
+                    tabStyle: { width: 100 },
+                    indicatorStyle: { backgroundColor: "#457281" },
+                    style: { backgroundColor: "transparent" },
+                }}
+            >
+                <Tab.Screen
+                    name="Achievements"
+                    component={ProfileAchievements}
+                />
+                <Tab.Screen
+                    name="Profile info"
+                    component={ProfileUserInformation}
+                />
+            </Tab.Navigator>
+        </Card>
     );
 }
 
