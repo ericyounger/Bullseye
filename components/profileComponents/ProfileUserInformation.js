@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useContext } from "react";
 import { Text, View } from "react-native";
+import UserContext from "../../contexts/UserContext";
+// import UserService from "../../service/UserService";
 import FieldChange from "./FieldChange";
 import GeneralProfileField from "./GeneralProfileField";
 import ProfileButtons from "./ProfileButtons";
 
 function ProfileUserInformation() {
+    const { user } = useContext(UserContext);
+
     return (
         <View style={{ flex: 1 }}>
             <View style={{ flexDirection: "row", paddingVertical: 10 }}>
@@ -15,22 +20,22 @@ function ProfileUserInformation() {
             </View>
             <FieldChange
                 fieldName="Email"
-                fieldValue="fotografyounger@gmail.com"
+                fieldValue={user.email}
                 defaultToggleValue={true}
             />
             <FieldChange
                 fieldName="Nickname"
-                fieldValue="Slayer"
-                defaultToggleValue={false}
+                fieldValue={user.nickName === null ? "" : null}
+                defaultToggleValue={user.showNickname === 1}
             />
 
             <GeneralProfileField
                 textDescription="Show my player statistics on web"
-                defaultToggleValue={true}
+                defaultToggleValue={user.showStatistics === 1}
             />
             <GeneralProfileField
                 textDescription="Show my achievements"
-                defaultToggleValue={true}
+                defaultToggleValue={user.showAchievements === 1}
             />
             <View style={{ marginTop: "auto" }}>
                 <ProfileButtons />

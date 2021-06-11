@@ -4,7 +4,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Limits from "../../components/createComponents/Limits";
 import GameType from "../../components/createComponents/GameType";
 import Card from "../../components/card/Card";
-import ThemeContext from "../../components/contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const Tab = createMaterialTopTabNavigator();
 

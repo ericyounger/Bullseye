@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Card from "../../components/card/Card";
-import ThemeContext from "../../components/contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import TeamList from "../../components/joinComponents/TeamList";
 
 function GamePreScreen() {

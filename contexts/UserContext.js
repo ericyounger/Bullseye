@@ -7,7 +7,10 @@ const initValues = {
         name: "Eric",
         lastName: "Younger",
     },
+    setUser: () => {},
     setLoggedIn: () => {},
+    setAccessToken: () => {},
+    accessToken: "",
 };
 
 const UserContext = createContext(initValues);

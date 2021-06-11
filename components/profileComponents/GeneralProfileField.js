@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View, Switch } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const styles = StyleSheet.create({
     switchField: {

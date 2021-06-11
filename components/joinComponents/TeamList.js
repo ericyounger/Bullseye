@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import StartGame from "../createComponents/StartGame";
 import ChooseTeamButtons from "./ChooseTeamButtons";
 import StatusChooseTeam from "./StatusChooseTeam";

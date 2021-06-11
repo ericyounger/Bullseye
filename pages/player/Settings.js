@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Card from "../../components/card/Card";
-import ThemeContext from "../../components/contexts/ThemeContext";
-import UserContext from "../../components/contexts/UserContext";
+import ThemeContext from "../../contexts/ThemeContext";
+import UserContext from "../../contexts/UserContext";
 import ToggleSwitch from "../../components/createComponents/ToggleSwitch";
 
 const styles = StyleSheet.create({

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import Slider from "@react-native-community/slider";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function SliderComponent({
     type,

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Text, View } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import ItemCounter from "./ItemCounter";
 import ToggleSwitch from "./ToggleSwitch";
 

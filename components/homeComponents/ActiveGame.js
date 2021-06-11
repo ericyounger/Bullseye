@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import TeamStatus from "./TeamStatus";
 import TimeLeft from "./TimeLeft";
 

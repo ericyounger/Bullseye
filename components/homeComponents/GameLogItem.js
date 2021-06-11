@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import StatusLine from "./StatusLine";
 
 const styles = StyleSheet.create({

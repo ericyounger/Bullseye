@@ -5,9 +5,11 @@ import {
     View,
     TextInput,
     TouchableOpacity,
+    KeyboardAvoidingView,
 } from "react-native";
-import UserContext from "../../components/contexts/UserContext";
+import UserContext from "../../contexts/UserContext";
 import Logo from "../../components/imageComponents/Logo";
+import userService from "../../service/userService";
 
 const styles = StyleSheet.create({
     container: {
@@ -16,8 +18,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     LoginCard: {
-        flex: 0.6,
-
         width: "90%",
         borderRadius: 20,
         backgroundColor: "rgba(52, 52, 52, 0.8)",
@@ -57,14 +57,40 @@ const styles = StyleSheet.create({
 function Login({ navigation }) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    // TODO: SALT AND HASH BEFORE TRANSIT
     const userContext = useContext(UserContext);
 
     function onRegister() {
         navigation.navigate("Register");
     }
 
+    function onLogin() {
+        userService
+            .loginUser(userName, password)
+            .then((res) => {
+                userContext.setLoggedIn(true);
+                const json = res.data;
+                userContext.setAccessToken(json);
+
+                userService
+                    .getUserInfo(json.access_token)
+                    .then(async (userInfo) => {
+                        await userContext.setUser(userInfo.data);
+                    })
+                    // eslint-disable-next-line no-unused-vars
+                    .catch((err) => {});
+            })
+            .catch((rej) => {
+                console.log("error");
+                console.log(rej);
+            });
+    }
+
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={styles.container}
+        >
             <View style={styles.LoginCard}>
                 <Logo />
                 <Text style={{ color: "white", marginVertical: 20 }}>
@@ -77,6 +103,7 @@ function Login({ navigation }) {
                     keyboardAppearance={"dark"}
                     placeholder="username"
                     placeholderTextColor="#8e8e8e"
+                    autoCapitalize={"none"}
                     autoCorrect={false}
                 />
                 <TextInput
@@ -88,6 +115,7 @@ function Login({ navigation }) {
                     placeholderTextColor="#8e8e8e"
                     textContentType="password"
                     secureTextEntry={true}
+                    autoCapitalize={"none"}
                     autoCorrect={false}
                 />
                 <View style={{ flexDirection: "row", padding: 40 }}>
@@ -97,15 +125,12 @@ function Login({ navigation }) {
                     >
                         <Text>Register</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.loginBtn}
-                        onPress={() => userContext.setLoggedIn(true)}
-                    >
+                    <TouchableOpacity style={styles.loginBtn} onPress={onLogin}>
                         <Text>Login</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 

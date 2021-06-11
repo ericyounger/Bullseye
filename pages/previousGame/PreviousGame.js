@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Text } from "react-native";
 import Card from "../../components/card/Card";
-import ThemeContext from "../../components/contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import Highlights from "../../components/previousgameComponents/Highlights";
 import Table from "../../components/previousgameComponents/Table";
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Text, View, Switch } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function ToggleSwitch({
     displayText,

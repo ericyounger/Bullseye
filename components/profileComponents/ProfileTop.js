@@ -1,7 +1,8 @@
 /* eslint-disable global-require */
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
+import UserContext from "../../contexts/UserContext";
 
 const styles = StyleSheet.create({
     profilePictureBtn: {
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
 
 function ProfileTop() {
     const themeContext = useContext(ThemeContext);
+    const { user } = useContext(UserContext);
 
     return (
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -33,10 +35,14 @@ function ProfileTop() {
 
             <View style={{ flexDirection: "column", paddingVertical: 10 }}>
                 <Text style={[themeContext.theme.spanFont]}>
-                    Eric Younger / eYounger
+                    {`${user.firstName} ${user.lastName}`} / {user.userName}
                 </Text>
                 <Text style={[themeContext.theme.spanFont]}>
-                    Nickname: Slayer
+                    {`${
+                        user.nickName === null
+                            ? ""
+                            : `Nickname: ${user.nickName}`
+                    }`}
                 </Text>
 
                 <TouchableOpacity

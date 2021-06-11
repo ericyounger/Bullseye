@@ -4,7 +4,7 @@ import ProfileTop from "../../components/profileComponents/ProfileTop";
 import ProfileAchievements from "../../components/profileComponents/ProfileAchievements";
 import ProfileUserInformation from "../../components/profileComponents/ProfileUserInformation";
 import Card from "../../components/card/Card";
-import ThemeContext from "../../components/contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const Tab = createMaterialTopTabNavigator();
 

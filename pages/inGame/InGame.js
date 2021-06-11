@@ -3,7 +3,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import InGameControllers from "../../components/ingameComponents/InGameControllers";
 import Alert from "../../components/ingameComponents/Alert";
 import Card from "../../components/card/Card";
-import ThemeContext from "../../components/contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const Tab = createMaterialTopTabNavigator();
 

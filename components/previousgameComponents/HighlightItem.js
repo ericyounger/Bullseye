@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Text, View } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function HighlightItem({ player, highlightText }) {
     const contextTheme = useContext(ThemeContext);

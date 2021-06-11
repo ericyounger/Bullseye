@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import ThemeContext from "../../components/contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const styles = StyleSheet.create({
     container: {

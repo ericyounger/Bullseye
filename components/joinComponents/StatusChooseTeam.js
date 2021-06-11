@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Text, View } from "react-native";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function StatusChooseTeam({ gameStarted, countdown }) {
     const [message, setMessage] = useState("Waiting for the game to start");

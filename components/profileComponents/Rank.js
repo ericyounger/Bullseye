@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import XPEarnerDisplay from "./XPEarnerDisplay";
 import Achievements from "./Achievements";
-import ThemeContext from "../contexts/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function Rank() {
     const themeContext = useContext(ThemeContext);
