@@ -76,6 +76,7 @@ function Login({ navigation }) {
                     .getUserInfo(json.access_token)
                     .then(async (userInfo) => {
                         await userContext.setUser(userInfo.data);
+                        navigation.navigate("Home");
                     })
                     // eslint-disable-next-line no-unused-vars
                     .catch((err) => {});
