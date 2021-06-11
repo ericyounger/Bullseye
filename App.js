@@ -21,14 +21,8 @@ import Menu from "./components/menu/menu";
 import ThemeProvider from "./providers/ThemeProvider";
 
 const MyTheme = {
-    dark: false,
     colors: {
-        primary: "rgb(255, 45, 85)",
         background: "transparent",
-        card: "rgb(255, 255, 255)",
-        text: "#ffffff",
-        border: "rgb(199, 199, 204)",
-        notification: "rgb(255, 69, 58)",
     },
 };
 
