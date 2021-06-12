@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 
 function UserProvider({ children }) {
@@ -14,6 +14,10 @@ function UserProvider({ children }) {
         accessToken,
         setAccessToken,
     };
+
+    useEffect(() => {
+        console.log(loggedIn);
+    }, [loggedIn]);
 
     return (
         <UserContext.Provider value={initValues}>
