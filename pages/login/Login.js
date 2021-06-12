@@ -117,6 +117,8 @@ function Login({ navigation }) {
                     secureTextEntry={true}
                     autoCapitalize={"none"}
                     autoCorrect={false}
+                    returnKeyType="send"
+                    onSubmitEditing={onLogin}
                 />
                 <View style={{ flexDirection: "row", padding: 40 }}>
                     <TouchableOpacity
