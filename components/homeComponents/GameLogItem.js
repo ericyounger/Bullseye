@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import ThemeContext from "../../contexts/ThemeContext";
 import StatusLine from "./StatusLine";
 
@@ -67,10 +68,7 @@ function GameLogItem({
 
     return (
         <TouchableOpacity onPress={onGameLogItemClicked}>
-            <View
-                style={[themeContext.theme.PreviousGamecard]}
-                onTouchEnd={onGameLogItemClicked}
-            >
+            <View style={[themeContext.theme.PreviousGamecard]}>
                 <View style={styles.flexColumnDirection}>
                     <View style={styles.flexRowDirection}>
                         <View style={styles.imageColumn}>

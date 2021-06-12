@@ -68,7 +68,7 @@ export default function Routes() {
                 </Tab.Navigator>
             )}
 
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </NavigationContainer>
     );
 }

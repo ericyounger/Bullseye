@@ -2,7 +2,7 @@ import axios from "axios";
 
 // import { API_BASE_URL, API_PORT } from "@env";
 
-const API_BASE_URL = "http://localhost";
+const API_BASE_URL = "http://192.168.0.61";
 const API_PORT = "4000";
 
 const baseUrl = `${API_BASE_URL}:${API_PORT}`;
